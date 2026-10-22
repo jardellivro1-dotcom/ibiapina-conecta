@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f6b4f">
+<title>Ibiapina Conecta</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--bg:#f4f7f5;--card:#fff;--tx:#17251f;--mut:#5d6f67;--pri:#0f6b4f;--pri2:#e3f2ec;--bd:#dbe5e0;--warn:#b45309;--ok:#15803d;--bad:#b91c1c;--info:#1d4ed8}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1713;--card:#18231d;--tx:#e8f1ec;--mut:#9bb0a5;--pri:#34c38f;--pri2:#173026;--bd:#274035;--warn:#fbbf24;--ok:#4ade80;--bad:#f87171;--info:#93c5fd}}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.45 system-ui,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--tx);padding-bottom:80px}
+header{background:var(--pri);color:#fff;padding:14px 16px;position:sticky;top:0;z-index:20}
+header h1{margin:0;font-size:1.15rem}header small{opacity:.85}
+@media(prefers-color-scheme:dark){header{color:#06251a}}
+main{max-width:760px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:12px}
+h2{font-size:1.1rem;margin:4px 0 12px}
+label{display:block;font-weight:600;margin:12px 0 4px}
+input,select,textarea,button{font:inherit}
+input,select,textarea{width:100%;padding:11px;border:1px solid var(--bd);border-radius:10px;background:var(--card);color:var(--tx)}
+textarea{min-height:90px}
+button{border:0;border-radius:10px;padding:12px 16px;background:var(--pri);color:#fff;font-weight:600;cursor:pointer}
+@media(prefers-color-scheme:dark){button{color:#06251a}}
+button.sec{background:var(--pri2);color:var(--pri)}button.sm{padding:6px 10px;font-size:.85rem}
+button:disabled{opacity:.5}
+nav{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--bd);display:flex;z-index:30;padding-bottom:env(safe-area-inset-bottom)}
+nav button{flex:1;background:none;color:var(--mut);border-radius:0;padding:10px 2px;font-size:.72rem;display:flex;flex-direction:column;align-items:center;gap:2px}
+nav button span{font-size:1.3rem}nav button.on{color:var(--pri)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.stat{background:var(--pri2);border-radius:12px;padding:12px;text-align:center}.stat b{display:block;font-size:1.7rem;color:var(--pri)}.stat small{color:var(--mut)}
+.tipos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tipo{background:var(--card);border:2px solid var(--bd);color:var(--tx);padding:10px 4px;font-size:.78rem;text-align:center;line-height:1.2}
+.tipo span{display:block;font-size:1.6rem}.tipo.on{border-color:var(--pri);background:var(--pri2)}
+.badge{display:inline-block;padding:2px 9px;border-radius:99px;font-size:.75rem;font-weight:700;background:var(--pri2);color:var(--pri)}
+.b-Aberto,.b-Recebida{background:#fef3c7;color:#92400e}.b-Em\ andamento,.b-Em\ análise{background:#dbeafe;color:#1e40af}.b-Resolvido,.b-Concluída{background:#dcfce7;color:#166534}
+@media(prefers-color-scheme:dark){.b-Aberto,.b-Recebida{background:#422006;color:#fde68a}.b-Em\ andamento,.b-Em\ análise{background:#172554;color:#bfdbfe}.b-Resolvido,.b-Concluída{background:#052e16;color:#bbf7d0}}
+.row{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.mut{color:var(--mut);font-size:.85rem}
+#map{height:55vh;border-radius:14px;border:1px solid var(--bd)}
+img.foto{max-width:100%;border-radius:10px;margin-top:8px}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:8px}.chips button{white-space:nowrap;background:var(--card);color:var(--tx);border:1px solid var(--bd);padding:6px 12px;font-weight:500;font-size:.85rem}.chips button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.aviso{font-size:.8rem;color:var(--mut);background:var(--pri2);border-radius:10px;padding:8px 10px;margin-bottom:12px}
+.bar{height:10px;border-radius:6px;background:var(--pri2);overflow:hidden}.bar i{display:block;height:100%;background:var(--pri)}
+table{width:100%;border-collapse:collapse;font-size:.85rem}td,th{padding:6px 4px;border-bottom:1px solid var(--bd);text-align:left;vertical-align:top}
+.hide{display:none}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:10px 16px;border-radius:99px;z-index:50}
+</style>
+</head>
+<body>
+<header><h1>🏞️ Ibiapina Conecta</h1><small>Prefeitura Municipal de Ibiapina · protótipo</small></header>
+<main id="app"></main>
+<nav id="nav"></nav>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
